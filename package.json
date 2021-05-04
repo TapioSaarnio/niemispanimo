@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node niemispanimobe",
-    "build": "rmdir build /s && cd niemispanimofe && npm install && npm run build && move build .. && cd .. && git add . && git commit -m build && git push -u origin main && git push heroku master"
+    "build": "rmdir build /s && cd niemispanimofe && npm install && npm run build && move build .. && cd .. && git add . && git commit -m build && git push -u origin main && git push heroku main"
   },
   "author": "Tapio Saarnio",
   "license": "ISC",
