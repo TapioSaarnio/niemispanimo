@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node niemispanimobe",
-    "build": "cd niemispanimofe/ && npm install && npm run build"
+    "build": "cd niemispanimofe/ && npm install && npm run build",
+    "dev": "nodemon niemispanimobe/index.js"
   },
   "author": "Tapio Saarnio",
   "license": "ISC",
