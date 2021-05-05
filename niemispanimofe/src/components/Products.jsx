@@ -9,11 +9,11 @@ import LeaveReviewModal from './LeaveReviewModal'
 import ReadReviewsModal from './ReadReviewsModal'
 import AddBeerModal from './AddBeerModal'
 import { FaBeer } from 'react-icons/fa'
-const signUpUrl = 'http://localhost:3001/api/users'
-const loginUrl = 'http://localhost:3001/api/login'
-const leaveReviewUrl = 'http://localhost:3001/api/reviews'
-const addBeerUrl = 'http://localhost:3001/api/products'
-const getProductUrl = 'http://localhost:3001/api/products'
+const signUpUrl = 'https://pacific-journey-96259.herokuapp.com/api/users'
+const loginUrl = 'https://pacific-journey-96259.herokuapp.com/api/login'
+const leaveReviewUrl = 'https://pacific-journey-96259.herokuapp.com/api/reviews'
+const addBeerUrl = 'https://pacific-journey-96259.herokuapp.com/api/products'
+const getProductUrl = 'https://pacific-journey-96259.herokuapp.com/api/products'
 
 
 
