@@ -299,7 +299,7 @@ const Products =() => {
                         <Card.Text id='beerDescription'>{p.description}</Card.Text>
                     </div>
                     <div id='reviewButtons'>
-                        <Button id='readReviewsButton' onClick={() => openReadReviewsModal(p)}>Lue arvosteluja</Button>
+                        <Button size='lg' id='readReviewsButton' onClick={() => openReadReviewsModal(p)}>Lue arvosteluja</Button>
                         <Button id='leaveReviewButton' onClick={() => openLeaveReviewModal(p)}>Jätä arvostelu</Button>
                     </div>
                 </Card.Body>

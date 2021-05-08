@@ -12,7 +12,7 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
 
 
     return(
-        <Modal open={loginModalOpen} onClose={onClose} centered={true} closeIcon>
+        <Modal style={{boxSizing: 'inherit'}}className='modal' open={loginModalOpen} onClose={onClose} centered={true} closeIcon>
             <Header textAlign='center'>Kirjaudu sisään</Header>
             <Modal.Content>
                 {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}

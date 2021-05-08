@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Gallery from './components/Gallery';
 import Products from './components/Products';
 import 'semantic-ui-css/semantic.min.css';
-
+import 'react-bootstrap/dist/react-bootstrap.js';
 
 
 function App() {
