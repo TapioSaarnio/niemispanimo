@@ -22,7 +22,7 @@ const BottomContainer = () => {
 
     return(
         <div style={styles.bottomContainer}>
-            <h2 id='streetCred'>Keski-Suomen sydämessä, peritty jano ja palo tehdä itse</h2>
+            <h2 id='about'>Keski-Suomen sydämessä, peritty jano ja palo tehdä itse</h2>
             <div id='ig'>
                 <a href='https://www.instagram.com/niemispanimo/'>
                     <FaInstagram style={{backgroundColor: '#93ea1f', marginRight: 5}}/><span id='niemisPanimoIg'>niemispanimo</span>

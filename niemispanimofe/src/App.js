@@ -9,8 +9,6 @@ import 'react-bootstrap/dist/react-bootstrap.js';
 
 function App() {
 
-  
-  
   return (
         <Router>
             <Switch>

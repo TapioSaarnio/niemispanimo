@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap');
-
 @import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
@@ -15,12 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 }
-
-/*
-*, *:after,* :before {
-  box-sizing: content-box;
-}
-*/
 
 
 code {
@@ -65,16 +58,13 @@ code {
 
 .cardPicture {
 
-  width: 540px;
-  height: 540px;
-  align-self: center;
-
+  width: 100%
+  
 }
 
 .description {
 
   display: flex;
-  max-width: 540px;
   justify-content: center;
   margin: 7px;
   text-align: center;
@@ -88,6 +78,7 @@ code {
 
   padding: 20px;
   margin: 10px;
+  max-width: 540px;
   background-color: #e0e0e0;
   display: flex;
   flex-direction: column;
@@ -103,7 +94,7 @@ code {
 #reviewButtons {
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
 }
@@ -199,6 +190,7 @@ code {
 #loginButton {
 
   align-self: center;
+  font-weight: bold;
 
 }
 
@@ -263,9 +255,10 @@ code {
   
 }
 
-#streetCred {
+#about {
 
   color: #93ea1f;
+  text-align: center;
 
 } 
 
@@ -288,6 +281,7 @@ code {
 #signInButton {
 
   margin: 10px;
+  font-weight: bold;
 
 }
 
@@ -418,7 +412,9 @@ input[type="radio"] {
 
 #leaveReviewButton {
 
+  background-color: white;
   align-self: center;
+  -webkit-appearance: none;
 
 }
 
@@ -460,10 +456,10 @@ input[type="radio"] {
 
  #readReviewsButton {
 
+  background-color: white;
   -webkit-appearance: none;
   margin: 10px,
   
-
  }
 
  #reviewsContent {
@@ -529,8 +525,7 @@ input[type="radio"] {
 
   .cardPicture {
 
-    width: 180px;
-    height: 180px;
+    width:100%
     
   }
 
@@ -588,7 +583,7 @@ input[type="radio"] {
   
   }
 
-  #streetCred {
+  #about {
 
     color: #93ea1f;
     font-size: 12px;
@@ -622,15 +617,13 @@ input[type="radio"] {
 
   .card {
 
-    padding-left: 100px;
-    padding-right: 100px;
     margin: 10px;
     background-color: #e0e0e0 ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 160px !important;
+    max-width: 180px !important;
 
   }
 
