@@ -12,7 +12,7 @@ import {Input} from 'reactstrap'
 const AddBeerModal = ({onSubmit, addBeerModalOpen, onClose, error}) => {
 
     return(
-        <Modal open={addBeerModalOpen} onClose={onClose} centered={true} closeIcon>
+        <Modal className='modal'open={addBeerModalOpen} onClose={onClose} centered={true} closeIcon>
             <Header textAlign='center'>Lisää olut</Header>
             <Modal.Content>
                 {error && <Segment inverted color='red'>{`Error: ${error}`}</Segment>}
