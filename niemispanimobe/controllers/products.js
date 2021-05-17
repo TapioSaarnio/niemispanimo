@@ -40,7 +40,6 @@ productsRouter.post('/', async (req, res, next) => {
 
     try {
 
-        console.log(req)
         const pictureFile = req.file
         const imageUrl = await uploadImage(pictureFile)
   
@@ -64,7 +63,7 @@ productsRouter.post('/', async (req, res, next) => {
   
       } catch (error) {
 
-        console.log(error)
+        next(error)
 
       }
     

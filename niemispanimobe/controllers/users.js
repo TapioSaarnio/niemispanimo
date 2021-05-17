@@ -20,7 +20,7 @@ usersRouter.post('/', async (request, response, next) => {
     
         const user = new User({
           username: body.username,
-          admin: body.admin,
+          admin: false,
           passwordHash
         })
     

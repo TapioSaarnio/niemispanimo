@@ -1,4 +1,4 @@
-const config = require('./utils/config')
+
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -6,7 +6,6 @@ const usersRouter = require('./controllers/users')
 const productsRouter = require('./controllers/products')
 const loginRouter = require('./controllers/login')
 const reviewsRouter = require('./controllers/reviews')
-
 const multer = require('multer')
 const mongoose = require('mongoose')
 
@@ -32,7 +31,14 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
   })
 
-  app.use(express.static('build'))
+  app.use((req, res, next) => {
+    if(req.header('x-forwarded-proto') !=='https') {
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    } else {
+      next()
+    }
+  })
+
   app.use(cors())
   app.use(express.static('build'))
   app.use(express.json())

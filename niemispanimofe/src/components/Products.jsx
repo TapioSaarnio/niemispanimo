@@ -38,6 +38,14 @@ const Products =() => {
     const closeLoginModal = () => setLoginModalOpen(false)
     const closeLeaveReviewModal = () => setLeaveReviewOpen(false)
     const closeSignUpModal = () => setSignUpModalOpen(false);
+    
+    let token = null
+
+    const setToken = newToken => {
+
+        token = 'bearer ${newToken}'
+
+    }
 
     useEffect(() => {
         getAllProducts().then(p => {
@@ -103,6 +111,7 @@ const Products =() => {
             const response = await axios.post(loginUrl, values)
             const user = response.data
             setUser(user)
+            setToken(user.token)
             if(values.remember === true){
                 window.localStorage.setItem(
                 'loggedInUser', JSON.stringify(user)
@@ -136,7 +145,10 @@ const Products =() => {
     */
     const handleLeaveReview = async (values) => {
 
-        await axios.post(leaveReviewUrl, values)
+        const config = {
+            headers: { Authorization: token}
+        }
+        await axios.post(leaveReviewUrl, values, config)
         closeLeaveReviewModal()
         getAllProducts().then(p => {
             setProducts(p)
