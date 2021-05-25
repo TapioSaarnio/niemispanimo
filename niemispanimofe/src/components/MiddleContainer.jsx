@@ -36,7 +36,7 @@ const MiddleContainer = () => {
                     <p className='frontPageChoicesText'>Tuotteet</p>
                 </div>
                 <div className='frontPageChoices'>
-                    <a href='https://www.youtube.com/watch?v=YbpaPkZojxA&t=1142s&ab_channel=Kulmanpojat'>
+                    <a href='https://www.youtube.com/watch?v=YbpaPkZojxA'>
                         <img className='frontPageImgs' alt='Lifetime Deal' src={LifetimeDeal}/>
                     </a>
                     <p className='frontPageChoicesText'>Videot</p>

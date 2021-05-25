@@ -9,11 +9,11 @@ import LeaveReviewModal from './LeaveReviewModal'
 import ReadReviewsModal from './ReadReviewsModal'
 import AddBeerModal from './AddBeerModal'
 import { FaBeer } from 'react-icons/fa'
-const signUpUrl = 'https://pacific-journey-96259.herokuapp.com/api/users'
-const loginUrl = 'https://pacific-journey-96259.herokuapp.com/api/login'
-const leaveReviewUrl = 'https://pacific-journey-96259.herokuapp.com/api/reviews'
-const addBeerUrl = 'https://pacific-journey-96259.herokuapp.com/api/products'
-const getProductUrl = 'https://pacific-journey-96259.herokuapp.com/api/products'
+const signUpUrl = 'https://niemispanimo.herokuapp.com/api/users'
+const loginUrl = 'https://niemispanimo.herokuapp.com/api/login'
+const leaveReviewUrl = 'https://niemispanimo.herokuapp.com/api/reviews'
+const addBeerUrl = 'https://niemispanimo.herokuapp.com/api/products'
+const getProductUrl = 'https://niemispanimo.herokuapp.com/api/products'
 
 
 
@@ -29,6 +29,7 @@ const Products =() => {
     const [readReviewsModalOpen, setReadReviewsModalOpen] = useState(false)
     const [confirmationMessage, setConfirmationMessage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const [token, setToken] = useState(null)
 
     const openLoginModal = () =>  setLoginModalOpen(true)
     const openSignUpModal = () => setSignUpModalOpen(true)
@@ -39,13 +40,7 @@ const Products =() => {
     const closeLeaveReviewModal = () => setLeaveReviewOpen(false)
     const closeSignUpModal = () => setSignUpModalOpen(false);
     
-    let token = null
 
-    const setToken = newToken => {
-
-        token = 'bearer ${newToken}'
-
-    }
 
     useEffect(() => {
         getAllProducts().then(p => {
@@ -103,15 +98,13 @@ const Products =() => {
     */
     const handleLogin = async (values) => {
 
-        console.log('values')
-        console.log(values)
 
         try{
 
             const response = await axios.post(loginUrl, values)
             const user = response.data
             setUser(user)
-            setToken(user.token)
+            setToken(`bearer ${user.token}`)
             if(values.remember === true){
                 window.localStorage.setItem(
                 'loggedInUser', JSON.stringify(user)
@@ -131,7 +124,7 @@ const Products =() => {
 
 
     /*
-    clears the localstorage and logs out a user
+    Clears the localstorage and logs out a user
     */
     const handleLogOut = () => {
 
@@ -143,10 +136,10 @@ const Products =() => {
     /*
      Makes a post request of the review to the backend
     */
-    const handleLeaveReview = async (values) => {
+     const handleLeaveReview = async (values) => {
 
         const config = {
-            headers: { Authorization: token}
+            headers: { Authorization: token },
         }
         await axios.post(leaveReviewUrl, values, config)
         closeLeaveReviewModal()
@@ -190,14 +183,16 @@ const Products =() => {
         data.append("file", values.file)
         data.append("name", values.name)
         data.append("description", values.description)
-
+        const config = {
+            headers: { Authorization: token },
+        }
+        
 
         try {
 
-            await axios.post(addBeerUrl, data)
-            
+                await axios.post(addBeerUrl, data, config)
+                   
         } catch(e) {
-            console.log(e)
             setErrorMessage('jotain meni vikaan')
             setTimeout(() => {
                 setErrorMessage(null)
@@ -234,7 +229,6 @@ const Products =() => {
 
         if(user.admin === true) {
 
-            console.log('useradmin')
             return(
                 <div id='loggedIn'>
                     <p>Olet kirjautunut sisään käyttäjänimellä "{user.username}"</p>

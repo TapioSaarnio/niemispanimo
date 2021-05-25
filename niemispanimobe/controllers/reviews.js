@@ -6,9 +6,12 @@ const jwt = require('jsonwebtoken')
 
 const getToken = request => {
 
-    const auth = request.get('authorization')
-    if(auth && auth.toLoweCase().startsWith('bearer ')) {
-        return authorization.substring(7)
+    console.log('request')
+    console.log(request)
+
+    const auth = request.get('Authorization')
+    if(auth && auth.toLowerCase().startsWith('bearer ')) {
+        return auth.substring(7)
     }
     return null
 }
@@ -27,8 +30,7 @@ reviewsRouter.post('/', async (request, response, next) => {
         if(!token || !decodedToken.id) {
             return response.status(401).json({ error: 'token missing or invalid'})
         }
-        console.log('reviewsrouterpost')
-        console.log(request.body)
+
         const body = request.body
         const user = await User.findById(decodedToken.id)
         const product = await Product.findOne({name: body.product.name})
